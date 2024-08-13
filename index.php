@@ -7,7 +7,7 @@ require_once BASE_PATH . '/controller/ProductController.php';
 require_once BASE_PATH . '/controller/OrderController.php';
 
 $user_id = 001;
-
+// $_SESSION['cart'] = [];
  
 $productController = new ProductController($databaseConnection);
 $products = $productController->handleRequest();
