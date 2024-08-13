@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+ 
+    margin: 0;
+    padding: 0;
+}
+ 
+table {
+  border-collapse: collapse;
+  width:100%;
+  border: #333;
+}
+
+th, td {
+  text-align: left;
+  padding: 15px;
+}
+th{
+
+  color: white;
+  background-color: #333;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+
+.prd_image{
+
+  width: 50px;
+  height:50px;
+}
+
+
+
+@media (max-width: 600px) {
+  .container {
+      padding: 10px;
+      margin: 10px;
+  }
+
+ 
+}
+
+
+
+
+
+.deletebtn, .editbtn , .updatebtn{
+  cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    background-color: #dea055; 
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+
+.dropdownList{
+  cursor: pointer;
+  border-color: black;
+  
+  padding: 10px 10px;
+  background-color: #f2f2f2; 
+  color: black;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
