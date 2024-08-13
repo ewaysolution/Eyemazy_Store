@@ -1,6 +1,6 @@
 <?php
 require_once BASE_PATH . '/config/db.php';
-
+session_start();
 class Order{
     private $databaseConnection;
 
@@ -8,13 +8,45 @@ class Order{
         $this->databaseConnection = $databaseConnection; // Assign the connection to the class property
     }
 
-    public function create($user_id, $product_id ,$price, $qty) {
-        $stmt = $this->databaseConnection->prepare("INSERT INTO order_tbl (user_id,product_id, price, qty) VALUES (?, ?,?,?)");
-        $stmt->execute([$user_id, $product_id ,$price, $qty]); // Execute the prepared statement with bound parameters
+    public function create($user_id, $total , $status, $product_id,$qty, $price) {
+
+        if(isset($user_id)) {
+         // check already ordered item there or not
+         $stmt = $this->databaseConnection->prepare("SELECT * FROM orders WHERE user_id = ? and status = ?");
+         $stmt->execute([$user_id, 'Pending']);
+         $result = $stmt->fetch();
+         // need order id
+         $order_id = $this->databaseConnection->lastInsertId();
+       
+                echo $order_id;
+            
+        //  if($result) {
+        //     $stmt = $this->databaseConnection->prepare("INSERT INTO order_items (order_id, product_id, qty, price) VALUES (?, ?, ?, ?)");
+        //     $stmt->execute([$order_id, $product_id, $qty, $price]);
+        //  } else{
+        //     // update record order
+        //     $stmt = $this->databaseConnection->prepare("UPDATE orders SET total = ? WHERE user_id = ? and status = ?");
+        //     $stmt->execute([$total, $user_id, $status]);
+        //  }
+        //     $stmt = $this->databaseConnection->prepare("INSERT INTO orders (user_id,total, status) VALUES (?,?,?)");
+        //     $stmt->execute([$user_id, $total, $status]); // Execute the prepared statement with bound parameters
+        //     $order_id = $this->databaseConnection->lastInsertId();
+        
+        
+        }
+
+       
+
+       
+
+
+       
+        return $order_id;
+
     }
 
     public function read() {
-        $stmt = $this->databaseConnection->query("SELECT * FROM order_tbl"); // Execute a query to fetch all products
+        $stmt = $this->databaseConnection->query("SELECT * FROM orders"); // Execute a query to fetch all products
         return $stmt->fetchAll(); // Fetch all results as an associative array
     }
 

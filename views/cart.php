@@ -32,6 +32,8 @@ $order = $orderController->handleRequest();
 </head>
 
 <body> <?php
+  
+    $session_data = $_SESSION['cart'];
     include '../views/header/navbar.php';
     ?>
 
@@ -51,13 +53,14 @@ $order = $orderController->handleRequest();
 
 
             <?php
-            foreach ($order as $orders) {
+             
+              
+            foreach ($session_data as $key => $value) {
                 echo "<tr >";
-                echo "<td>" . $orders['product_id'] . "</td>";
-                echo "<td> <input class='qty' type='number' min='1' max='100' value='" . $orders['qty'] . "' style='   text-align: center'> </td>";
-                echo "<td>" . $orders['price'] . "</td>";
-                echo "<td>" . $orders['id'] . "</td>";
-               
+                echo "<td>" . $value['product_id'] . "</td>";
+                echo "<td> <input class='qty' type='number' min='1' max='100' value='" . $value['qty'] . "' style='   text-align: center'> </td>";
+                echo "<td>" . $value['price'] . "</td>";
+                echo "<td>" . $value['total'] . "</td>";
                 echo '<td style="text-align: center;">  <form action="your_script.php" method="POST">
                 <input type="submit" value="Update">
                 <input type="submit" value="Remove">
@@ -66,38 +69,40 @@ $order = $orderController->handleRequest();
             }
             
         ?>
-        
+
             <tr>
-                 
+
             </tr>
-            <tr >
-    <td colspan="6" style="padding: 0; text-align: right;">
-        <div style="  text-align: right;">
- 
-            <table style="width: 40%; text-align: right; margin: 0 0 0 auto; padding: 10px 0 0 0;">
-                <tr>
-                    <th style="text-align: right;">Total</th>
-                    <th style="text-align: right;">2000</th>
-                </tr>
-                <tr>
-                    <th style="text-align: right;">Shipping</th>
-                    <th style="text-align: right;">100</th>
-                </tr>
-                <tr>
-                    <th style="text-align: right;">Grand Total</th>
-                    <th style="text-align: right;">2100</th>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <form action="your_script.php" method="POST">
-                            <input type="submit" value="Checkout">
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </td>
-</tr>
+            <tr>
+                <td colspan="6" style="padding: 0; text-align: right;">
+                    <div style="  text-align: right;">
+
+                        <table style="width: 40%; text-align: right; margin: 0 0 0 auto; padding: 10px 0 0 0;">
+                            <tr>
+                                <th style="text-align: right;">Total</th>
+                                <th style="text-align: right;">
+                            <?php $total_cart_amount =  array_sum(array_column($session_data, 'total')); echo $total_cart_amount?>
+                            </th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: right;">Shipping</th>
+                                <th style="text-align: right;"><?php $shipping = 0; echo $shipping ?></th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: right;">Grand Total</th>
+                                <th style="text-align: right;"><?php $total = $total_cart_amount + $shipping; echo $total ?></th>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;">
+                                    <form action="your_script.php" method="POST">
+                                        <input type="submit" value="Checkout">
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
 
 
 

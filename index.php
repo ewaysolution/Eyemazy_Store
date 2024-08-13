@@ -8,7 +8,7 @@ require_once BASE_PATH . '/controller/OrderController.php';
 
 $user_id = 001;
 
-// Instantiate the controller and handle the request
+ 
 $productController = new ProductController($databaseConnection);
 $products = $productController->handleRequest();
   
@@ -40,7 +40,11 @@ $orders = $orderController->handleRequest();
 
 <body>
     <?php include 'views/header/navbar.php'; 
- 
+     
+    // Initialize cart if not already
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
 ?>
 
 
@@ -50,15 +54,16 @@ $orders = $orderController->handleRequest();
 
 
         <div class="column">
-
+      
             <?php foreach ($products as $product) {
-
+                 
                 echo '
              <form  method="POST">
              <input type="hidden" name="product_id" value="'.$product['id'].'">
              <input type="hidden" name="user_id" value="'.$user_id.'">
              <input type="hidden" name="qty" value="1">
              <input type="hidden" name="price" value="'.$product['price'].'">
+    
                 <div class="card">
                 <div class="card_image">
                 <img name="image" src="'.$product['image'].'"alt="Avatar">
@@ -83,7 +88,7 @@ $orders = $orderController->handleRequest();
                 
                 
                 ';
-
+          
             } ?>
 
 
