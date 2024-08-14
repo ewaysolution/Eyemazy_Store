@@ -12,8 +12,8 @@ class Order{
  
         if(isset($user_id)) {
      
-            $stmt = $this->databaseConnection->prepare("INSERT INTO orders (user_id,total, status) VALUES (?,?,?)");
-            $stmt->execute([$user_id, '1000', $status]); // Execute the prepared statement with bound parameters
+            $stmt = $this->databaseConnection->prepare("INSERT INTO orders (user_id,total, status,order_status) VALUES (?,?,?,?)");
+            $stmt->execute([$user_id, '1000', $status, 0]); // Execute the prepared statement with bound parameters
 
             $order_id = $this->databaseConnection->lastInsertId();
             
@@ -77,4 +77,11 @@ class Order{
     //     $stmt->execute([$name, $price, $description, $id]); // Execute the prepared statement to update a product
     
     // }
+
+
+    
+    public function getPlacedOrders() {
+        $stmt = $this->databaseConnection->query("SELECT * FROM orders"); // Execute a query to fetch all products
+        return $stmt->fetchAll(); // Fetch all results as an associative array
+    }
 }

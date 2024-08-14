@@ -14,14 +14,14 @@ class Product {
     }
 
     public function read() {
-        $stmt = $this->databaseConnection->query("SELECT * FROM products"); // Execute a query to fetch all products
+        $stmt = $this->databaseConnection->query("SELECT * FROM products where active = 1"); // Execute a query to fetch all products
         return $stmt->fetchAll(); // Fetch all results as an associative array
     }
 
 
 
     public function delete($id) {
-        $stmt = $this->databaseConnection->prepare("DELETE FROM products WHERE id = ?");
+        $stmt = $this->databaseConnection->prepare("UPDATE products SET active = 0 WHERE id = ?");
         $stmt->execute([$id]); // Execute the prepared statement to delete a product
         if ($stmt->rowCount() > 0) {
             echo "<script type='text/javascript'>alert('Product deleted successfully');</script>";

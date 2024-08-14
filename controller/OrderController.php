@@ -93,11 +93,14 @@ class OrderController {
   
 
     // Create order
-    $this->orderModel->create(1, 'completed',$_SESSION['cart'], 100);
+    $this->orderModel->create(1, '1',$_SESSION['cart'], 100);
 
         // $_SESSION['cart'] = [];/
         // Print success message
         // echo 'Payment successful sssssssssss';
     }
 
+    public function handlePlaceOrders() {
+        return $this->orderModel->getPlacedOrders();
+    }
 }
