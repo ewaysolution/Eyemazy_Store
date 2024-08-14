@@ -40,7 +40,7 @@ $orders = $orderController->handleRequest();
 
 <body>
     <?php include 'views/header/navbar.php'; 
-     
+    
     // Initialize cart if not already
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
