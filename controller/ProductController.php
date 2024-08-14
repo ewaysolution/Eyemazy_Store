@@ -13,12 +13,19 @@ class ProductController {
      
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (isset($_POST['add_products'])) {
-                 $this-> productModel->create($_POST['name'], $_POST['qty'], $_POST['image'], $_POST['price'], $_POST['description']);
+                    if (empty($_POST['name'])) {
+                        echo '<script>alert("Please enter product name!");</script>';
+                    } else{
+                        $this-> productModel->create($_POST['name'], $_POST['qty'], $_POST['image'], $_POST['price'], $_POST['description']);
+                    }
+
+                 
                 }elseif (isset($_POST['delete_product'])) {
                         $this->productModel->delete($_POST['product_id']);
                         
                     }
       
+            
             // if (isset($_POST['create'])) {
             //     $this->productModel->create($_POST['name'], $_POST['price'], $_POST['description']);
             // } elseif (isset($_POST['update'])) {

@@ -12,8 +12,6 @@ class OrderController {
         
     }
 // Initialize cart if not already
-  
- 
     public function handleRequest() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $_POST['user_id'];
@@ -46,27 +44,7 @@ class OrderController {
             $session_data = $_SESSION['cart'];
             
 
-          //just show session data in foreach
-          foreach ($session_data as $key => $value) {
-            echo  "Product ID: " . $value['product_id'] . ", Quantity: " . $value['qty'] . ", 
-            Total: " . $value['total'] . ", 
-            Price: " . $value['price'] . "<br>";
-          }
-
-
-         
-            // if (isset($_POST['addToCart'])) {
-            //     $order_id = $this->orderModel->create($user_id, $total, $status, $product_id ,$qty, $price);
-
-            //     if ($order_id) {
-            //         echo "Order created successfully. Order ID: " . $order_id;
-            //     } else {
-            //         echo "Failed to create order.";
-            //     }
-            // }
-
-
-            
+        
                
        
         }
@@ -83,13 +61,12 @@ class OrderController {
             return;
         }
     
-   
+        //debug
         // echo '<pre>';
         // print_r( $_SESSION['cart']);
         // echo '</pre>';
      
-        // Iterate over session data and create order items
-         // Assuming session data has only one product, accessing the first product directly
+    
   
 
     // Create order

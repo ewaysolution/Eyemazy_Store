@@ -29,26 +29,14 @@ $products = $productController->handleRequest();
  
 
   
-    // include_once '../../config/db.php';
-// include_once '../../controllers/productController.php';
-
-// Instantiate the controller and handle the request
-// $productController = new ProductController($databaseConnection);
-// $products = $productController->handleRequest();
-
- 
-
-
-    // Assuming $db is your database connection
-    // $controller = new ProductController($db);
-    // $products = $controller->handleRequest();
+  
     ?>
 
     <div class="container">
         <h1>Product</h1>
         <form method="POST">
             <label for="productName">Product Name</label>
-            <input type="text" id="productName" name="name" required>
+            <input type="text" id="productName" name="name" >
 
 
 

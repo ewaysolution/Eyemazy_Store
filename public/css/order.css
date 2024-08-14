@@ -82,4 +82,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+.page_btn{
+  padding: 8px;
 
+}
+
+ 

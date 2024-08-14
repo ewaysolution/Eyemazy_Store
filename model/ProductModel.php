@@ -5,24 +5,24 @@ class Product {
     private $databaseConnection;
 
     public function __construct($databaseConnection) {
-        $this->databaseConnection = $databaseConnection; // Assign the connection to the class property
+        $this->databaseConnection = $databaseConnection;  
     }
 
     public function create($name,$qty, $image,$price, $description) {
-        $stmt = $this->databaseConnection->prepare("INSERT INTO products (name,qty,image, price, description) VALUES (?, ?,?, ?,?)");
-        $stmt->execute([$name, $qty, $image, $price, $description]); // Execute the prepared statement with bound parameters
+        $stmt = $this->databaseConnection->prepare("INSERT INTO products (name,qty,image, price, description, active) VALUES (?, ?,?, ?,?,?)");
+        $stmt->execute([$name, $qty, $image, $price, $description, 1]); 
     }
 
     public function read() {
-        $stmt = $this->databaseConnection->query("SELECT * FROM products where active = 1"); // Execute a query to fetch all products
-        return $stmt->fetchAll(); // Fetch all results as an associative array
+        $stmt = $this->databaseConnection->query("SELECT * FROM products where active = 1"); 
+        return $stmt->fetchAll();  
     }
 
 
 
     public function delete($id) {
         $stmt = $this->databaseConnection->prepare("UPDATE products SET active = 0 WHERE id = ?");
-        $stmt->execute([$id]); // Execute the prepared statement to delete a product
+        $stmt->execute([$id]);  
         if ($stmt->rowCount() > 0) {
             echo "<script type='text/javascript'>alert('Product deleted successfully');</script>";
         } else {
@@ -31,7 +31,7 @@ class Product {
     }
     public function update($id, $name, $price, $description) {
         $stmt = $this->databaseConnection->prepare("UPDATE products SET name = ?, price = ?, description = ? WHERE id = ?");
-        $stmt->execute([$name, $price, $description, $id]); // Execute the prepared statement to update a product
+        $stmt->execute([$name, $price, $description, $id]); 
     
     }
 }

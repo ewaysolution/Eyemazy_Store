@@ -4,7 +4,7 @@ require_once BASE_PATH . '/config/db.php';
 require_once BASE_PATH . '/controller/ProductController.php';
 require_once BASE_PATH . '/controller/OrderController.php';
  
-// Instantiate the controller and handle the request
+ 
 $productController = new ProductController($databaseConnection);
 $products = $productController->handleRequest();
 
@@ -37,7 +37,7 @@ $order = $orderController->handlePlaceOrders();
     <div class="container">
 
 
-        <h1>Order</h1>
+        <h1 style="text-align: left;">Order</h1>
         <table>
             <tr>
                 <th>Order ID</th>
@@ -113,11 +113,19 @@ $order = $orderController->handlePlaceOrders();
 </div>
 
  </td>
-</tr>';
+</tr>
+
+';
 
             }
              ?>
-
+<tr>
+<td colspan="6" style="text-align: right">
+<button class="page_btn" style="cursor: pointer">1</button>
+<button class="page_btn" style="cursor: pointer">2</button>
+<button class="page_btn" style="cursor: pointer">3</button>
+</td>
+</tr>
 
         </table>
     </div>
