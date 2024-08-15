@@ -50,7 +50,7 @@ $orders = $orderController->handleRequest();
 
 
 
-    <div class="row">
+    <div  class="content">
 
 
         <div class="column">
@@ -100,7 +100,10 @@ $orders = $orderController->handleRequest();
     </div>
     </div>
 
-
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p><a href="/privacy-policy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+    </footer>
 </body>
 
 </html>

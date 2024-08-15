@@ -17,6 +17,7 @@ $order = $orderController->place_order();
  
 
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,8 +27,31 @@ $order = $orderController->place_order();
 </head>
 
 <body>
-    <h1 class="success">Payment successful</h1>
-    <button><a href="../index.php">Home</a></button>
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="message-box _success">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <h2> Your payment was successful </h2>
+                    <p> Thank you for your payment. we will <br>
+                        be in contact with more details shortly </p>
+
+                    <a href="../index.php"><button class="btn">Home</button></a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
 </body>
 
 </html>
