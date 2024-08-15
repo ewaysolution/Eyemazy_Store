@@ -31,8 +31,11 @@ $products = $productController->handleRequest();
   
   
     ?>
+<div class="content">
 
-    <div class="container">
+
+
+<div class="container">
         <h1>Product</h1>
         <form method="POST">
             <label for="productName">Product Name</label>
@@ -41,16 +44,16 @@ $products = $productController->handleRequest();
 
 
             <label for="productPrice">Product Image</label>
-            <input type="text" id="image" name="image" required>
+            <input type="text" id="image" name="image" >
 
             <label for="productDescription">Product Description</label>
-            <textarea id="productDescription" name="description" rows="5" required></textarea>
+            <textarea id="productDescription" name="description" rows="5" ></textarea>
 
             <label for="productPrice">Product Price</label>
-            <input type="number" id="productPrice" name="price" required>
+            <input type="number" id="productPrice" name="price" >
 
             <label for="qty">Qty</label>
-            <input type="number" id="qty" name="qty" required>
+            <input type="number" id="qty" name="qty" >
 
             <input type="submit" value="Add" name="add_products">
         </form>
@@ -114,6 +117,8 @@ $products = $productController->handleRequest();
     <?php endforeach; ?>
     </table>
     </div>
+</div>
+    <?php include "../../views/footer/footer.php" ?>
 </body>
 
 </html>

@@ -14,10 +14,13 @@
     include '../header/admin/navbar.php';
     ?>
 
-    <div class="container">
+   <div class="content">
+   <div class="container">
 
- <p>Weolcome to Dashboard !</p>
-    </div>
+<p>Weolcome to Dashboard !</p>
+   </div>
+</div>
+    <?php include "../../views/footer/footer.php" ?>
 </body>
 
 </html>
