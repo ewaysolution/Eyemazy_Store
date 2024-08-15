@@ -30,7 +30,7 @@ class Order{
              
                
                 $stmt = $this->databaseConnection->prepare("INSERT INTO order_items (order_id,product_id,qty,price) VALUES (?,?,?,?)");
-                $stmt->execute([$order_id, $product_id, $qty, $price]); // Execute the prepared statement with bound parameters
+                $stmt->execute([$order_id, $product_id, $qty, $price]);  
             }
 
             if ($stmt->rowCount() > 0) {
@@ -53,8 +53,8 @@ class Order{
     }
 
     public function read() {
-        $stmt = $this->databaseConnection->query("SELECT * FROM orders"); // Execute a query to fetch all products
-        return $stmt->fetchAll(); // Fetch all results as an associative array
+        $stmt = $this->databaseConnection->query("SELECT * FROM orders"); // Execute a query to fetch all orders
+        return $stmt->fetchAll(); 
     }
 
 
