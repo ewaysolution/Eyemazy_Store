@@ -1,0 +1,5 @@
+.content {
+    margin-top: 40px;
+    padding: 20px;
+     min-height: 80vh; /* Adjust based on content height */
+   }

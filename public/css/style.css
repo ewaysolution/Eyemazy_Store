@@ -21,4 +21,25 @@ img {
 
  
 
+/* footer */
+footer {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    
+   
+  }
+  .content {
+    margin-top: 40px;
+    padding: 20px;
+     min-height: 80vh; /* Adjust based on content height */
+   }
+   a{
+    text-decoration: none;
+    color: black;
+   }
 
+
+/* footer */

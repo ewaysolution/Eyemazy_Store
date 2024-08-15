@@ -70,15 +70,6 @@ input[type="submit"]:hover {
 }
 
 
-footer {
-  background-color: white;
-  text-align: center;
-  padding: 10px;
-  position: relative;
-  bottom: 0;
-  
- 
-}
 
 
 a{
@@ -86,8 +77,3 @@ a{
   color: black;
 }
 
-.content {
- margin-top: 40px;
- padding: 20px;
-  min-height: 80vh; /* Adjust based on content height */
-}
