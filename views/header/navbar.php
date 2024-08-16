@@ -14,7 +14,7 @@ $products = $productController->handleRequest();
 
 $orderController = new OrderController($databaseConnection);
 $countTotalOrders = $orderController->handleCount();
-echo "<script>alert($countTotalOrders)</script>";
+// echo "<script>alert($countTotalOrders)</script>";
 ?>
 
 
