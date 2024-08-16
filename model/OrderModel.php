@@ -65,4 +65,17 @@ class Order{
         $stmt = $this->databaseConnection->query("SELECT * FROM orders");  
         return $stmt->fetchAll();  
     }
+
+    public function countPlacedOrders() {
+   
+    // Check if 'cart' is set and is an array
+    if (isset($_SESSION['cart'])) {
+        // Return the length of the 'cart' array
+        return count($_SESSION['cart']);
+    } else {
+        // Return 0 if 'cart' is not set or not an array
+        return 0;
+    }
+    }
+    
 }

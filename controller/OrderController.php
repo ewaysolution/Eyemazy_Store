@@ -21,7 +21,7 @@ class OrderController {
             $qty = $_POST['qty'];
            $price = $_POST['price'] ;
     
-       echo "<script>alert('Product added to cart')</script>";
+    //    echo "<script>alert('Product added to cart')</script>";
   // Check if product already in cart
             if (isset($_SESSION['cart'][$product_id])) {
                 $_SESSION['cart'][$product_id]['qty'] += $qty;
@@ -79,5 +79,9 @@ class OrderController {
 
     public function handlePlaceOrders() {
         return $this->orderModel->getPlacedOrders();
+    }
+
+    public function handleCount() {
+        return $this->orderModel->countPlacedOrders();
     }
 }
